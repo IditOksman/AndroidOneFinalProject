@@ -19,7 +19,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
     ArrayList<GameModel> games;
 
     public GamesAdapter(GamesWrapperModel games) {
-        this.games = games.getData();
+        this.games = games.getGamesList();
     }
 
 
@@ -45,7 +45,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
     }
 
     public void setAdapterData(GamesWrapperModel games) {
-        this.games = games.getData();
+        this.games = games.getGamesList();
         notifyDataSetChanged();
     }
 

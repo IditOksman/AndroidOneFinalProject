@@ -10,11 +10,11 @@ public class GamesWrapperModel {
         this.games = games;
     }
 
-    public ArrayList<GameModel> getData() {
+    public ArrayList<GameModel> getGamesList() {
         return games;
     }
 
-    public void setData(ArrayList<GameModel> games) {
+    public void setGamesList(ArrayList<GameModel> games) {
         this.games = games;
     }
 
