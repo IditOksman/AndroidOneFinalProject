@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.hit.androidonefinalproject.model.GamesWrapperModel;
-import com.hit.androidonefinalproject.model.UserData;
+import com.hit.androidonefinalproject.model.UserModel;
 
 public class MySharedPreferences implements IMySharedPreferences {
 
@@ -40,7 +40,7 @@ public class MySharedPreferences implements IMySharedPreferences {
 
     }
 
-    public void setUserData(UserData user) {
+    public void setUserData(UserModel user) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(
                 USER_DATA_NAME,
@@ -49,11 +49,11 @@ public class MySharedPreferences implements IMySharedPreferences {
         editor.apply();
     }
 
-    public UserData getUserData() {
+    public UserModel getUserData() {
         String data = preferences.getString(
                 USER_DATA_NAME,
                 null
         );
-        return gson.fromJson(data, UserData.class);
+        return gson.fromJson(data, UserModel.class);
     }
 }

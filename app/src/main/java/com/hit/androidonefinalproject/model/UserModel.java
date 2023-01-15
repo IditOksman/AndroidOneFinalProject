@@ -1,11 +1,11 @@
 package com.hit.androidonefinalproject.model;
 
 
-public class UserData {
+public class UserModel {
     String email;
     String password;
 
-    public UserData(String email, String password) {
+    public UserModel(String email, String password) {
         this.email = email;
         this.password = password;
     }

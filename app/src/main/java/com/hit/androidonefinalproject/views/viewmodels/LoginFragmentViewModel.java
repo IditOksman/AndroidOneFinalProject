@@ -1,7 +1,7 @@
 package com.hit.androidonefinalproject.views.viewmodels;
 import androidx.lifecycle.ViewModel;
 
-import com.hit.androidonefinalproject.model.UserData;
+import com.hit.androidonefinalproject.model.UserModel;
 import com.hit.androidonefinalproject.utils.IMySharedPreferences;
 import com.hit.androidonefinalproject.utils.MySharedPreferences;
 
@@ -16,8 +16,8 @@ public class LoginFragmentViewModel extends ViewModel {
 
     public Boolean isUserSaved(String email, String password) {
 
-        UserData newUser = new UserData(email,password);
-        UserData storedUser = preferences.getUserData();
+        UserModel newUser = new UserModel(email,password);
+        UserModel storedUser = preferences.getUserData();
 
         if(storedUser == null) return true;
 
