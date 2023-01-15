@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 public class NetworkRepository implements INetworkRepository {
 
     Retrofit retrofit;
-    public MutableLiveData<ArrayList<UnfilteredGameModel>> appData = new MutableLiveData<>();
+    MutableLiveData<ArrayList<UnfilteredGameModel>> appData = new MutableLiveData<>();
 
     public NetworkRepository() {
         retrofit = MyRetrofit.provideRetrofitInstance();
@@ -44,5 +44,9 @@ public class NetworkRepository implements INetworkRepository {
         });
 
         return null;
+    }
+
+    public LiveData<ArrayList<UnfilteredGameModel>> getAppData() {
+        return appData;
     }
 }

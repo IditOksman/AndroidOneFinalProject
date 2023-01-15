@@ -34,7 +34,9 @@ public class GamesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentGamesBinding.inflate(inflater, container, false);
         viewModel = new GamesFragmentViewModel();
-        adapter = new GamesAdapter(new FilteredGameModel(new ArrayList<>()));
+        adapter = new GamesAdapter(
+                new FilteredGameModel(new ArrayList<>())
+        );
         binding.gamesRv.setAdapter(adapter);
         binding.gamesRv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         setListeners();
@@ -46,7 +48,7 @@ public class GamesFragment extends Fragment {
     }
 
     private void setListeners() {
-        viewModel.data.observe(getViewLifecycleOwner(), games -> {
+        viewModel.getData().observe(getViewLifecycleOwner(), games -> {
             adapter.setAdapterData(games);
         });
     }
