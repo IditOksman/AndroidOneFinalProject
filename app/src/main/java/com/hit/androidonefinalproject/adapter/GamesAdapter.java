@@ -18,8 +18,8 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
 
     ArrayList<GameModel> games;
 
-    public GamesAdapter(GamesWrapperModel games) {
-        this.games = games.getGamesList();
+    public GamesAdapter(GamesWrapperModel wrapper) {
+        this.games = wrapper.getGamesList();
     }
 
 
