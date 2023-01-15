@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.hit.androidonefinalproject.databinding.ListItemBinding;
-import com.hit.androidonefinalproject.model.FilteredGameModel;
-import com.hit.androidonefinalproject.model.UnfilteredGameModel;
+import com.hit.androidonefinalproject.model.GamesWrapperModel;
+import com.hit.androidonefinalproject.model.GameModel;
 
 import java.util.ArrayList;
 
 public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> {
 
-    ArrayList<UnfilteredGameModel> games;
+    ArrayList<GameModel> games;
 
-    public GamesAdapter(FilteredGameModel games) {
+    public GamesAdapter(GamesWrapperModel games) {
         this.games = games.getData();
     }
 
@@ -44,7 +44,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
         return games.size();
     }
 
-    public void setAdapterData(FilteredGameModel games) {
+    public void setAdapterData(GamesWrapperModel games) {
         this.games = games.getData();
         notifyDataSetChanged();
     }
@@ -59,7 +59,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
 
         }
 
-        public void bind(UnfilteredGameModel game) {
+        public void bind(GameModel game) {
             binding.title.setText(game.title);
             Glide.with(this.itemView.getContext())
                     .load(game.thumbnail)

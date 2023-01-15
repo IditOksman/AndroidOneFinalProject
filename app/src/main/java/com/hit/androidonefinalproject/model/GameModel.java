@@ -1,6 +1,6 @@
 package com.hit.androidonefinalproject.model;
 
-public class UnfilteredGameModel {
+public class GameModel {
     public int id;
     public String title;
     public String thumbnail;

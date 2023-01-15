@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 
 import com.hit.androidonefinalproject.adapter.GamesAdapter;
 import com.hit.androidonefinalproject.databinding.FragmentGamesBinding;
-import com.hit.androidonefinalproject.model.FilteredGameModel;
-import com.hit.androidonefinalproject.model.UnfilteredGameModel;
+import com.hit.androidonefinalproject.model.GamesWrapperModel;
 import com.hit.androidonefinalproject.views.viewmodels.GamesFragmentViewModel;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class GamesFragment extends Fragment {
         binding = FragmentGamesBinding.inflate(inflater, container, false);
         viewModel = new GamesFragmentViewModel();
         adapter = new GamesAdapter(
-                new FilteredGameModel(new ArrayList<>())
+                new GamesWrapperModel(new ArrayList<>())
         );
         binding.gamesRv.setAdapter(adapter);
         binding.gamesRv.setLayoutManager(new LinearLayoutManager(this.getContext()));

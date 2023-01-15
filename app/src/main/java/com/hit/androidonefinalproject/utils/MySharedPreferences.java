@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.hit.androidonefinalproject.model.FilteredGameModel;
+import com.hit.androidonefinalproject.model.GamesWrapperModel;
 import com.hit.androidonefinalproject.model.UserData;
 
 public class MySharedPreferences implements IMySharedPreferences {
@@ -22,7 +22,7 @@ public class MySharedPreferences implements IMySharedPreferences {
         gson = new Gson();
     }
 
-    public void setGamesDataToLocalStorage(FilteredGameModel games) {
+    public void setGamesDataToLocalStorage(GamesWrapperModel games) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(
                 PREFS_NAME,
@@ -31,12 +31,12 @@ public class MySharedPreferences implements IMySharedPreferences {
         editor.apply();
     }
 
-    public FilteredGameModel getGamesDataFromLocalStorage() {
+    public GamesWrapperModel getGamesDataFromLocalStorage() {
         String data = preferences.getString(
                 PREFS_NAME,
                 null
         );
-        return gson.fromJson(data, FilteredGameModel.class);
+        return gson.fromJson(data, GamesWrapperModel.class);
 
     }
 

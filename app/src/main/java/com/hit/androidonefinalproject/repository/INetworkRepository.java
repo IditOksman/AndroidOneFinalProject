@@ -2,10 +2,10 @@ package com.hit.androidonefinalproject.repository;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.hit.androidonefinalproject.model.UnfilteredGameModel;
+import com.hit.androidonefinalproject.model.GameModel;
 
 import java.util.ArrayList;
 
 public interface INetworkRepository {
-    MutableLiveData<ArrayList<UnfilteredGameModel>> getGames();
+    MutableLiveData<ArrayList<GameModel>> getGames();
 }
