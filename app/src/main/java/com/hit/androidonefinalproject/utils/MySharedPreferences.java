@@ -56,4 +56,13 @@ public class MySharedPreferences implements IMySharedPreferences {
         );
         return gson.fromJson(data, UserModel.class);
     }
+
+    public boolean isDataStored() {
+        return preferences.getString(
+                PREFS_NAME,
+                null
+        ) != null;
+    }
+
+
 }

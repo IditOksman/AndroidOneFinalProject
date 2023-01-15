@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.hit.androidonefinalproject.adapter.GamesAdapter;
 import com.hit.androidonefinalproject.databinding.FragmentGamesBinding;
 import com.hit.androidonefinalproject.model.GamesWrapperModel;
+import com.hit.androidonefinalproject.utils.MySharedPreferences;
 import com.hit.androidonefinalproject.views.viewmodels.GamesFragmentViewModel;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class GamesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentGamesBinding.inflate(inflater, container, false);
-        viewModel = new GamesFragmentViewModel();
+        viewModel = new GamesFragmentViewModel(new MySharedPreferences(this.getContext()));
         adapter = new GamesAdapter(
                 new GamesWrapperModel(new ArrayList<>())
         );
