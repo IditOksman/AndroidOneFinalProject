@@ -17,9 +17,11 @@ import java.util.ArrayList;
 public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> {
 
     ArrayList<GameModel> games;
+    private GameOnClickListener itemClickListener;
 
-    public GamesAdapter(GamesWrapperModel wrapper) {
+    public GamesAdapter(GamesWrapperModel wrapper, GameOnClickListener listener) {
         this.games = wrapper.getGamesList();
+        itemClickListener = listener;
     }
 
 
@@ -37,6 +39,9 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(games.get(position));
+        holder.binding.gameUrlTv.setOnClickListener( v ->
+                itemClickListener.onItemClick(position)
+        );
     }
 
     @Override
@@ -49,6 +54,14 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
 
+    public ArrayList<GameModel> getAdapterData() {
+         return games;
+    }
+
+    public interface GameOnClickListener {
+        void onItemClick(int position);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ListItemBinding binding;
@@ -56,7 +69,6 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
         public ViewHolder(ListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-
         }
 
         public void bind(GameModel game) {

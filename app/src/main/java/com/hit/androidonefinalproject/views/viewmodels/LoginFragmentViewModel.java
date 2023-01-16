@@ -19,10 +19,10 @@ public class LoginFragmentViewModel extends ViewModel {
         UserModel newUser = new UserModel(email,password);
         UserModel storedUser = preferences.getUserData();
 
-        if(storedUser == null) return true;
+        if(storedUser == null) return false;
 
-        return newUser.getEmail() == storedUser.getEmail() &&
-                newUser.getPassword() == storedUser.getPassword();
+        return newUser.getEmail().equals(storedUser.getEmail()) &&
+                newUser.getPassword().equals(storedUser.getPassword());
 
     }
 }
